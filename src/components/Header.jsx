@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
+  //Header File which holds FrontEnd to Route files
   return (
     <>
       <div className="container">
@@ -42,7 +43,7 @@ const Header = () => {
                       className="nav-link"
                       to="/students"
                       style={({ isActive }) => ({
-                        color: isActive ? "#B100B1" : "#6597E6",
+                        color: isActive ? "#F7F7F7" : "#DAD0CF",
                       })}
                     >
                       Students
@@ -53,7 +54,7 @@ const Header = () => {
                       className="nav-link"
                       to="/mentors"
                       style={({ isActive }) => ({
-                        color: isActive ? "#B100B1" : "#6597E6",
+                        color: isActive ? "#F7F7F7" : "#DAD0CF",
                       })}
                     >
                       Mentors

@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 const Students = () => {
   const [data, setData] = useState([]);
 
+  //Function to get all students from API
   const stu = async () => {
     const getStus = await getAllStus();
     setData([getStus]);

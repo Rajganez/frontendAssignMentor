@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { addMentor } from "./../API/axios.js";
 
 const AddMentor = () => {
+  //State to render API data
   const [mentors, setMentors] = useState([]);
-
+  //Intial form data and will replace to intial value in submit action
   const intialForm = {
     Name: "",
     Mentor_Proficiency: "",
@@ -11,6 +12,7 @@ const AddMentor = () => {
     Experience: "",
     Teaching_Exp: "",
   };
+  //State to Handle changes in Form data
   const [formData, setFormData] = useState(intialForm);
   const handleChange = (e) => {
     setFormData({
@@ -19,6 +21,7 @@ const AddMentor = () => {
     });
   };
 
+  //Function to Add Mentor and Form data sent to API
   const add = async () => {
     const success = await addMentor(mentors);
     alert(success.msg);
@@ -28,6 +31,7 @@ const AddMentor = () => {
     setMentors(formData);
   }, [formData]);
 
+  //Submit Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     add();

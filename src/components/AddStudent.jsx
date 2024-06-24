@@ -2,22 +2,27 @@ import { useEffect, useState } from "react";
 import { addStudent } from "./../API/axios.js";
 
 const AddStudent = () => {
+  //State to render form data
   const [students, setStudents] = useState([]);
 
+  //Intial form data and will replace to intial value in submit action
   const intialForm = {
     Name: "",
     Phone: "",
     Degree: "",
     PreviousMentor: "",
-    MentorID : null,
+    MentorID: null,
   };
+  //State to handlechange the form data
   const [formData, setFormData] = useState(intialForm);
+  //Handle Change Function
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
+  //Async Function to Add student and fromdata is passed to the API
   const add = async () => {
     const success = await addStudent(students);
     alert(success.msg);
@@ -27,6 +32,7 @@ const AddStudent = () => {
     setStudents(formData);
   }, [formData]);
 
+  //Handle Submit Function to process form data
   const handleSubmit = (e) => {
     e.preventDefault();
     add();
@@ -86,8 +92,8 @@ const AddStudent = () => {
             </div>
           </div>
           <label htmlFor="inputJoinee" className="col-sm-2 col-form-label">
-              Joinee
-            </label>
+            Joinee
+          </label>
           <select
             key={formData.Joinee}
             value={formData.Joinee}
@@ -96,7 +102,9 @@ const AddStudent = () => {
             id="inputJoinee"
             onChange={handleChange}
           >
-            <option value="" disabled selected>--Select--</option>
+            <option value="" disabled selected>
+              --Select--
+            </option>
             <option value="New">New</option>
             <option value="Alumini">Alumini</option>
           </select>
