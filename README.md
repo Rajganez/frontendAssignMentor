@@ -1,63 +1,59 @@
-# Description: 
+# Admin Page for Online Teaching Site
 
-*API was tested in this FrontEnd*
+This frontend is designed to manage the organization's database for an online teaching site. It interacts with the backend API to handle various operations related to students and mentors.
 
-*This is a Admin Page to Handle Organization DB for a Online Teaching Site*
+## Visit
 
-# Visit :
+Check out the live demo: [Admin Page](https://httdbadminpage.netlify.app/)
 
-**[https](https://httdbadminpage.netlify.app/)**
+## API URL
 
-# API URL:
+This frontend communicates with the following API: [Backend API](https://assign-mentor-rwbp.onrender.com)
 
-**[https](https://assign-mentor-rwbp.onrender.com)**
+## API Documentation
 
-# Run In PostMan or View:
+You can explore the API in Postman: [View Documentation](https://documenter.getpostman.com/view/34103499/2sA3XWdycy)
 
-**[https](https://documenter.getpostman.com/view/34103499/2sA3XWdycy)**
+## Features and Operations
 
+### `/students`
 
-# Below Operations are performed in this Front End
+- Displays all students in the database.
 
-*"/students"*
+### `/mentors`
 
-* Displays all Students in the database
+- Displays all mentors in the database.
 
-*"/mentors"*
+### `/addmentor`
 
-* Displays all Mentors in the database
+- Allows adding a new mentor to the database.
 
-*"/addmentor"*
+### `/addstudent`
 
-* Adding a Mentor
+- Allows adding a new student to the database.
 
-*"/addstudent*
+### **Assigning Students to a Mentor**  
+**`/assignstudent/:MentorID`**
 
-* Adding a Student
+1. Add students to a mentor based on course proficiency.
+2. Excludes students already assigned to a mentor.
 
-**Assigning Students to Mentor**
-*"/assignstudent/:MentorID"*
+### **Changing Mentor for a Student**  
+**`/changementor/:studentID`**
 
-1. Add Students
-    - Display All Students with similar Course proficiency with the mentor
-    - Not to be displayed - Already assigned student
+1. Change the mentor for a particular student by providing a new mentor ID.
+2. The existing mentor ID is replaced with the new one, and the old mentor ID is pushed into the student's previous mentor information.
 
-**Changing Mentor for a Student**
-*"/changementor/:studentID"*
+### **Displaying Students for a Particular Mentor**  
+**`/displaystudents/:mentorID`**
 
-1. For Particular student ID - Change mentor by getting mentor ID 
-    - Replace the exsisting Mentor ID with the New 
-    - Push the exsisting Mentor ID into the Previous Mentor information in student DB 
+1. Displays students assigned to a specific mentor by matching the mentor ID in the student database.
 
-**Displaying Students for Particular Mentor**
-*"/displaystudents/:mentorID"*
+### **Display Students Previously Assigned to a Mentor**  
+**`/previousmentor/:studentID`**
 
-1. Lookup the Params MentorID with the mentor id in the student DB
-    - Display the Students data
+1. Displays the previous mentors assigned to a particular student.
 
-**Display Students who Assigned Previuos with a Mentor**
-*"/previousmentor/:studentID"*
+---
 
-1. Displaying previously assigned Mentor for a particular Student 
-
-
+This admin page provides an easy-to-use interface for managing students and mentors within the organization's database, ensuring a seamless workflow for the online teaching site.
